@@ -1,0 +1,19 @@
+name: 'Hello World Docker Action'
+description: 'Say hello'
+inputs:
+  who-to-greet:
+    description: 'Who to greet'
+    required: true
+    default: 'world'
+outputs:
+  time:
+    description: 'The time we said hello'
+runs:
+  # For more on Docker actions, see:
+  # https://docs.github.com/en/actions/sharing-automations/creating-actions/creating-a-docker-container-action
+  using: 'docker'
+  # 'docker://image:tag' uses pre-built image, 'Dockerfile' builds locally
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
+  
